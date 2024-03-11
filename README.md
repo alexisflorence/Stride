@@ -2,6 +2,8 @@
 
 Stride is a mobile-responsive web application that was created to assist workout tracking by integrating with the Notion API to manage and retrieve workout videos and logs. Crafted with Flask and Python, styled with Tailwind CSS, and deployed via Fly.io, Stride allow you to randomly select workouts from an existing Notion database, and log sessions.
 
+https://stride.fly.dev
+
 ## Features
 
 - Add workout videos to your Notion database.
