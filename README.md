@@ -1,6 +1,6 @@
 # Stride - A Workout Logger App
 
-Stride is a workout logging application that helps you track your fitness progress. With Stride, you can easily add your workout routines, fetch random workout videos from your Notion database, and log completed workouts with additional details such as the time taken and weights used.
+Stride is a mobile-responsive web application that was created to assist workout tracking by integrating with the Notion API to manage and retrieve workout videos and logs. Crafted with Flask and Python, styled with Tailwind CSS, and deployed via Fly.io, Stride allow you to randomly select workouts from an existing Notion database, and log sessions.
 
 ## Features
 
