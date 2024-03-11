@@ -1,10 +1,49 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
+import os
 
 app = Flask(__name__)
+
+NOTION_TOKEN = os.environ.get('NOTION_SECRET')
+DATABASE_ID_FOR_VIDEOS = os.environ.get('VIDEO_DB')
+DATABASE_ID_FOR_LOGGING = os.environ.get('LOGGED_DB')
+
+from functions import fetch_random_workout_from_videos_database, add_workout_to_videos_database, log_completed_workout
 
 @app.route('/')
 def home():
     return render_template('index.html')
 
-if __name__ == "__main__":
-    app.run(debug=True)
+
+@app.route('/random-workout')
+def random_workout():
+    random_workout = fetch_random_workout_from_videos_database(NOTION_TOKEN, DATABASE_ID_FOR_VIDEOS)
+    # Extract the necessary details, for example, the URL, to pass to the template
+    video_url = random_workout.get('properties', {}).get('URL', {}).get('url', 'No URL Found')
+    return render_template('random_workout.html', video_url=video_url)
+
+@app.route('/log-workout', methods=['GET', 'POST'])
+def log_workout_route():
+    if request.method == 'POST':
+        try:
+            # Extract data from the form
+            name = request.form['name']
+            tags = request.form.getlist('tags')  # Assuming this is a list of tags
+            date = request.form['date']
+            heaviest_weight = request.form.get('heaviest_weight', type=int)
+
+            # Assuming the function is updated to handle all necessary fields
+            response = log_completed_workout(NOTION_TOKEN, DATABASE_ID_FOR_LOGGING, name, tags, date, heaviest_weight)
+            
+            # Check if the response from the function is what you expect
+            if response is not None:
+                return redirect(url_for('index'))
+            else:
+                return "Failed to log workout", 500
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            # In a production app, you would log this to a file or error tracking service
+            return "An error occurred while trying to log the workout", 500
+    return render_template('log_workout.html')
+
+
+

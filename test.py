@@ -1,4 +1,5 @@
 import requests
+print(requests) 
 import os
 from dotenv import load_dotenv
 

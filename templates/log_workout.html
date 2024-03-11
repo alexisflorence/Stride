@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log Workout</title>
+</head>
+<body>
+    <h1>Log Your Workout</h1>
+    <form action="/log-workout" method="post">
+        <label for="name">Workout Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label>Tags:</label><br>
+        <input type="checkbox" id="tag1" name="tags" value="Cardio">
+        <label for="tag1">Cardio</label><br>
+        <input type="checkbox" id="tag2" name="tags" value="Strength">
+        <label for="tag2">Strength</label><br>
+        <input type="checkbox" id="tag3" name="tags" value="Flexibility">
+        <label for="tag3">Flexibility</label><br>
+        <input type="checkbox" id="tag4" name="tags" value="Balance">
+        <label for="tag4">Balance</label><br><br>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="heaviest_weight">Heaviest Weight Used (lbs):</label>
+        <input type="number" id="heaviest_weight" name="heaviest_weight" required><br><br>
+
+        <input type="submit" value="Log Workout">
+    </form>
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
+
