@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Workout Tracker</title>
+    <meta charset="UTF-8">
+    <title>Stride</title>
+    <link rel="icon" type="static/ico" href="/static/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Welcome to the Workout Tracker</h1>
-    <a href="/random-workout">Get a Random Workout</a> | <a href="/log-workout">Log a Workout</a> | <a href="/add-workout">Add Workout to List</a>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <div class="text-center">
+            <!-- Logo at the top of the homepage -->
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Stride Logo" class="mx-auto h-12">
+        </div>
+    <div class="min-h-screen flex flex-col items-center justify-center">
+        <h1 class="text-4xl font-bold text-gray-800 mb-6">Stride</h1>
+        <div class="text-center">
+            <a href="/random-workout" class="text-lg text-white bg-blue-500 px-4 py-2 rounded shadow hover:bg-blue-600 transition-colors duration-200 m-2">Get a Random Workout</a>
+            <a href="/log-workout" class="text-lg text-white bg-green-500 px-4 py-2 rounded shadow hover:bg-green-600 transition-colors duration-200 m-2">Log a Workout</a>
+            <a href="/add-workout" class="text-lg text-white bg-indigo-500 px-4 py-2 rounded shadow hover:bg-indigo-600 transition-colors duration-200 m-2">Add Workout to List</a>
+        </div>
+    </div>
 </body>
 </html>
-

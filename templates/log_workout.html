@@ -3,33 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Log Workout</title>
+    <link rel="icon" type="static/ico" href="/static/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Log Your Workout</h1>
-    <form action="/log-workout" method="post">
-        <label for="name">Workout Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-4xl font-bold text-center text-gray-800 my-6">Log Your Workout</h1>
+        <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-lg">
+            <div class="md:flex">
+                <div class="w-full p-3">
+                    <form action="/log-workout" method="post" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-semibold text-gray-700">Workout Name:</label>
+                            <input type="text" id="name" name="name" class="w-full px-3 py-2 border rounded shadow-sm focus:outline-none" required>
+                        </div>
 
-        <label>Tags:</label><br>
-        <input type="checkbox" id="tag1" name="tags" value="Cardio">
-        <label for="tag1">Cardio</label><br>
-        <input type="checkbox" id="tag2" name="tags" value="Strength">
-        <label for="tag2">Strength</label><br>
-        <input type="checkbox" id="tag3" name="tags" value="Flexibility">
-        <label for="tag3">Flexibility</label><br>
-        <input type="checkbox" id="tag4" name="tags" value="Balance">
-        <label for="tag4">Balance</label><br><br>
+                        <div>
+                            <span class="block text-sm font-semibold text-gray-700">Tags:</span>
+                            <div class="mt-2">
+                                <div>
+                                    <input type="checkbox" id="tag1" name="tags" value="Cardio">
+                                    <label for="tag1" class="ml-2 text-gray-700">Cardio</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="tag2" name="tags" value="Strength">
+                                    <label for="tag2" class="ml-2 text-gray-700">Strength</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="tag3" name="tags" value="Flexibility">
+                                    <label for="tag3" class="ml-2 text-gray-700">Flexibility</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="tag4" name="tags" value="Balance">
+                                    <label for="tag4" class="ml-2 text-gray-700">Balance</label>
+                                </div>
+                            </div>
+                        </div>
 
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required><br><br>
+                        <div>
+                            <label for="date" class="block text-sm font-semibold text-gray-700">Date:</label>
+                            <input type="date" id="date" name="date" class="w-full px-3 py-2 border rounded shadow-sm focus:outline-none" required>
+                        </div>
 
-        <label for="heaviest_weight">Heaviest Weight Used (lbs):</label>
-        <input type="number" id="heaviest_weight" name="heaviest_weight" required><br><br>
+                        <div>
+                            <label for="heaviest_weight" class="block text-sm font-semibold text-gray-700">Heaviest Weight Used (lbs):</label>
+                            <input type="number" id="heaviest_weight" name="heaviest_weight" class="w-full px-3 py-2 border rounded shadow-sm focus:outline-none" required>
+                        </div>
 
-        <input type="submit" value="Log Workout">
-    </form>
-
-    <a href="/">Back to Home</a>
+                        <div class="text-center">
+                            <input type="submit" value="Log Workout" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="/" class="text-blue-600 hover:underline">Back to Home</a>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css"></script>
+    <div class="text-center mt-4">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Stride Logo" class="mx-auto h-12">
+    </div>
 </body>
 </html>
+
 
