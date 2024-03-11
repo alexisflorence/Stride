@@ -1,6 +1,46 @@
 import requests
 import random
 
+def add_workout_to_database(notion_token, database_id, workout_name, workout_url, workout_equipment):
+    headers = {
+        "Authorization": f"Bearer {notion_token}",
+        "Content-Type": "application/json",
+        "Notion-Version": "2021-05-13"
+    }
+    data = {
+        "parent": {"database_id": database_id},
+        "properties": {
+            "Name": {
+                "title": [
+                    {
+                        "text": {
+                            "content": workout_name
+                        }
+                    }
+                ]
+            },
+            "URL": {
+                "url": workout_url
+            },
+            "Equipment": {
+                "rich_text": [
+                    {
+                        "text": {
+                            "content": workout_equipment
+                        }
+                    }
+                ]
+            }
+        }
+    }
+    response = requests.post('https://api.notion.com/v1/pages', headers=headers, json=data)
+    if response.status_code == 200:
+        print("Workout added successfully!")
+        return response.json()
+    else:
+        print(f"Failed to add workout. Status code: {response.status_code}, response: {response.text}")
+        return None
+
 def fetch_random_workout_from_videos_database(notion_token, database_id):
     headers = {
         "Authorization": f"Bearer {notion_token}",

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Workout</title>
+</head>
+<body>
+    <h1>Add New Workout Video</h1>
+    <form action="/add-workout" method="post">
+        <label for="name">Workout Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label>Tags:</label><br>
+        <input type="checkbox" id="tag1" name="tags" value="Cardio">
+        <label for="tag1">Abs</label><br>
+        <input type="checkbox" id="tag2" name="tags" value="Strength">
+        <label for="tag2">FullBody</label><br>
+        <input type="checkbox" id="tag3" name="tags" value="Flexibility">
+        <label for="tag3">Legs</label><br>
+        <input type="checkbox" id="tag4" name="tags" value="Balance">
+        <label for="tag4">Arms</label><br><br>
+        <input type="checkbox" id="tag4" name="tags" value="Balance">
+        <label for="tag4">Glutes</label><br><br>
+
+        <label for="url">Workout URL:</label>
+        <input type="url" id="url" name="url" required><br><br>
+
+        <label for="equipment">Equipment Used:</label>
+        <input type="text" id="equipment" name="equipment" required><br><br>
+
+        <input type="submit" value="Add Workout">
+    </form>
+
+    <a href="/">Back to Home</a>
+</body>
+</html>

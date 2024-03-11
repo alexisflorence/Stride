@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Workout Tracker</title>
+    <meta charset="UTF-8">
+    <title>Random Workout</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            // Check if the URL is provided
+            var url = "{{ video_url }}";
+            if(url) {
+                window.open(url, '_blank'); // This will open the workout URL in a new tab
+            }
+        };
+    </script>
 </head>
 <body>
-    <h1>Welcome to the Workout Tracker</h1>
-    <a href="/random-workout">Get a Random Workout</a> | <a href="/log-workout">Log a Workout</a>
+    <h1>Your workout is ready!</h1>
+    <p>If the workout video did not open, <a href="{{ video_url }}" target="_blank">click here</a>.</p>
+    <a href="/">Back to Home</a>
 </body>
 </html>
+
