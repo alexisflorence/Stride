@@ -1,4 +1,4 @@
-import functions
+import requests
 import random
 
 def fetch_random_workout_from_videos_database(notion_token, database_id):
@@ -6,7 +6,7 @@ def fetch_random_workout_from_videos_database(notion_token, database_id):
         "Authorization": f"Bearer {notion_token}",
         "Notion-Version": "2021-05-13",
     }
-    response = functions.post(f'https://api.notion.com/v1/databases/{database_id}/query', headers=headers)
+    response = requests.post(f'https://api.notion.com/v1/databases/{database_id}/query', headers=headers)
     if response.status_code == 200:
         results = response.json()["results"]
         if results:
@@ -37,7 +37,7 @@ def add_workout_to_videos_database(notion_token, database_id, name, tags, url, e
             "Equipment": {"rich_text": [{"text": {"content": equipment}}]}
         }
     }
-    response = functions.post('https://api.notion.com/v1/pages', json=data, headers=headers)
+    response = requests.post('https://api.notion.com/v1/pages', json=data, headers=headers)
     if response.status_code == 200:
         print("Workout added successfully!")
     else:
@@ -66,7 +66,7 @@ def log_completed_workout(notion_token, database_id, name, tags, date, heaviest_
             }
         }
     }
-    response = functions.post('https://api.notion.com/v1/pages', json=data, headers=headers)
+    response = requests.post('https://api.notion.com/v1/pages', json=data, headers=headers)
     if response.status_code == 200:
         print("Workout logged successfully!")
         return response.json()

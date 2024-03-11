@@ -10,7 +10,7 @@ DATABASE_ID_FOR_LOGGING = os.environ.get('LOGGED_DB')
 from functions import fetch_random_workout_from_videos_database, add_workout_to_videos_database, log_completed_workout
 
 @app.route('/')
-def home():
+def index():
     return render_template('index.html')
 
 
