@@ -1,0 +1,10 @@
+.btn-primary {
+    background-color: #4f46e5; /* Indigo */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+.btn-primary:hover {
+    background-color: #4338ca; /* Darker Indigo */
+}
